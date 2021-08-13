@@ -6,13 +6,13 @@ from django.utils import timezone
 
 
 class User(models.Model):
-    login_ID = models.CharField(max_length=20, unique=True)
-    nickName = models.CharField(max_length=30, unique=True)
-    username = models.CharField(max_length=20, blank=True)
+    login_ID = models.CharField(max_length=100, unique=True)
+    nickName = models.CharField(max_length=100, unique=True)
+    username = models.CharField(max_length=100, blank=True)
     passWord = models.CharField(max_length=200)
     enterYear = models.DateField(null=True, blank=True)
     birth = models.DateField(null=True, blank=True)
-    school = models.CharField(max_length=30)
+    school = models.CharField(max_length=100)
     email = models.EmailField()
     isAuth = models.BooleanField(default=False)
     admin = models.BooleanField(default=False)
