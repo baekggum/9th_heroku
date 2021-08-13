@@ -1,0 +1,76 @@
+@import url(https://cdn.jsdelivr.net/gh/moonspam/NanumSquare@1.0/nanumsquare.css);
+@import url(https://cdn.rawgit.com/moonspam/NanumSquare/master/nanumsquare.css);
+
+body {
+    font-family : 'NanumSquare',san-serif;
+    margin: 0;
+    padding: 0;
+
+    min-width: 1400px;
+}
+.back{
+    display:flex;
+    text-align: center;
+}
+.login-left {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width:50%;
+    height: 100vh;
+    background-color: #DCEDC1;
+}
+
+.login-right {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width:50%;
+    height: 100vh;
+    background-color: #F4F9F4;
+
+    text-align: center;
+}
+
+#login-text{
+    font-size: 40px;
+}
+
+
+.login-form-ip{
+    margin:5px;
+    width: 300px;
+    height: 35px;
+    font-size:15px;
+}
+
+#login-button{
+    
+    width: 310px;
+    height: 40px;
+    font-size: 20px;
+
+    text-align: center;
+
+    background-color: #8AAE92;
+    color:#ffffff;
+
+    border-width: 3px;
+    border-color: #616161;
+}
+
+#signup{
+    color: #8AAE92;
+}
+
+a {
+    color: white;
+}
+
+a:hover {
+    color: white;
+}
+
+a:active {
+    color: white;
+}

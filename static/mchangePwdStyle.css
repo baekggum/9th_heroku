@@ -1,0 +1,58 @@
+body {
+    padding: 20px;
+    padding-top: 0px
+}
+
+#title {
+    border-bottom: 1px solid #616161;
+}
+
+#container {
+    width: 96%;
+    height: 100%;
+    margin-top: 10px;
+    padding: 20px;
+    background-color: #DCEDC1;
+}
+
+.list {
+    width: 100%;
+    height: 100%;
+    background-color: #F9F8EB;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 10px;
+    padding: 0 5px 0 5px;
+}
+
+#pwdContainer {
+    width: 98%;
+    height: 50px;
+    background-color: #8AAE92;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #7D7D7D;
+    margin-bottom: 10px;
+    padding: 0 5px 0 5px;
+}
+
+#pwdContainer a{
+    text-decoration: none;
+}
+
+.inputPwd {
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.newInputPwd {
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+#ok {
+    background-color: #F9F8EB;
+    border: 1px solid #7D7D7D;
+}

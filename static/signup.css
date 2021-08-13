@@ -1,0 +1,219 @@
+@import url(https://cdn.jsdelivr.net/gh/moonspam/NanumSquare@1.0/nanumsquare.css);
+@import url(https://cdn.rawgit.com/moonspam/NanumSquare/master/nanumsquare.css);
+/* header header-bar big-text  nav-bar */
+body {
+    font-family : 'NanumSquare',san-serif;
+    margin: 0;
+    padding: 0;
+
+    background-color: #F4F9F4;
+    text-align: center;
+    min-width: 1400px;
+}
+
+.signup-top{
+    width: 100%;
+    height: 120px;
+    background-color: #DCEDC1;
+}
+
+.signup-bottom{
+    position:relative;
+    top:60px;
+    margin: 0px 10px 0px 13px;
+    background-color: #8AAE92;
+    height: 50px;
+}
+
+#level-line{
+    position: absolute;
+    top:20px;
+    left:50%;
+
+    width: 800px;
+    height: 0px;
+
+    margin-left: -400px;
+
+    border: 5px solid #DCEDC1;
+}
+
+.level-circle-after{
+    position: absolute;
+    top:12.5px;
+    left:50%;
+    
+    width: 25px;
+    height: 25px;
+
+    background: #DCEDC1;
+    border: 5px solid #679186;
+    box-sizing: border-box;
+
+    border-radius: 50%;
+}
+
+.level-circleing{
+    position: absolute;
+    top:12.5px;
+    left:50%;
+    
+    width: 25px;
+    height: 25px;
+
+    background: #679186;
+    border: 5px solid #DCEDC1;
+    box-sizing: border-box;
+
+    border-radius: 50%;
+}
+
+.level-circle-before{
+    position: absolute;
+    top:12.5px;
+    left:50%;
+    
+    width: 25px;
+    height: 25px;
+
+    background: #ffffff;
+    border: 5px solid #DCEDC1;
+    box-sizing: border-box;
+
+    border-radius: 50%;
+}
+
+#circle1{
+    margin-left:-410px;
+}
+
+#circle2{
+    margin-left:-200px;
+}
+
+#circle4{
+    margin-left:200px;
+}
+
+#circle5{
+    margin-left:400px;
+}
+
+.signup-text{
+    width: 800px;
+    height: 411px;
+
+    position: absolute;
+    left:50%;
+    margin-left:-395px;
+    padding-top:60px;
+    background: #F9F8EB;
+    border: 5px solid #DCEDC1;
+    box-sizing: border-box;
+}
+
+.signup-button{
+    width: 150px;
+    height: 40px;
+    font-size: 20px;
+
+    position: absolute;
+    margin-top:450px;
+    margin-left:-70px;
+
+    text-align: center;
+
+    background-color: #8AAE92;
+    color:#ffffff;
+
+    border-width: 3px;
+    border-color: #616161;
+}
+
+#signup-button-finish{
+    width: 200px;
+    height: 40px;
+    font-size: 20px;
+
+    position: absolute;
+    margin-top:350px;
+    margin-left:-90px;
+
+    text-align: center;
+
+    background-color: #8AAE92;
+    color:#ffffff;
+
+    border-width: 3px;
+    border-color: #616161;
+}
+
+#signup-text5{
+
+    width: 800px;
+    height: 250px;
+    
+    position: absolute;
+    left:50%;
+    margin-left:-395px;
+    padding-top:70px;
+    
+    background: #F9F8EB;
+    border: 5px solid #DCEDC1;
+    box-sizing: border-box;
+
+    font-size:30px;
+    font-weight: bold;
+}
+
+.signup-line1{
+    text-align: right;
+    margin-right:270px;
+    margin-top:10px;
+    font-size: 20px;
+}
+
+.signup-line2{
+    text-align: right;
+    margin-right:230px;
+    margin-top:10px;
+    font-size: 20px;
+}
+
+.signup-line4{
+    text-align: right;
+    margin-right:240px;
+    margin-top:10px;
+    font-size: 20px;
+}
+
+.signup-line{
+    text-align: right;
+    margin-right:270px;
+    margin-top:10px;
+    font-size: 20px;
+}
+
+.signup-length1{
+    width: 170px;
+}
+
+.signup-length2{
+    width: 270px;
+}
+
+.signup-length4{
+    width: 230px;
+}
+
+.signup-length-button{
+    width: 120px;
+}
+
+.signup-length-button2{
+    width:130px;
+}
+
+.signup-length-button4{
+    width:70px;
+}

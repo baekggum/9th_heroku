@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>원동력</title>
+    <style>
+        body {
+    padding: 20px;
+    padding-top: 0px
+}
+
+#title {
+    border-bottom: 1px solid #616161;
+}
+
+#container {
+    width: 96%;
+    height: 100%;
+    margin-top: 10px;
+    padding: 20px;
+    background-color: #DCEDC1;
+}
+
+.list {
+    width: 100%;
+    height: 50px;
+    background-color: #F9F8EB;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+    padding: 0 5px 0 5px;
+}
+
+.listCategory {
+    display: flex;
+    width: 200px;
+    height: 20px;
+    color: #8AAE92;
+    font-weight: 500;
+    font-size: 20px;
+    justify-content: flex-end;
+    margin: 25px 25px 25px 0;
+}
+
+#container .list .groupName a {
+    text-decoration: none;
+    color: #000000;
+    font-weight: 500;
+    font-size: 20px;
+}
+
+#page {
+    display: flex;
+    flex-direction: 40;
+    justify-content: center;
+    align-content: center;
+    transform: scale(0.3);
+}
+    </style>
+</head>
+    <body>
+        <div id="title">
+            <h1>내가 쓴 댓글</h1>
+        </div>
+        <div id="container">
+            <div class="list">
+                <div class="groupName"><a href="#">3학년인데 활동할 수 있나요?</a></div>
+                <div class="listCategory">홍보</div>
+            </div>
+            <div class="list">
+                <div class="groupName"><a href="#">아이언3 원딜도 데려가주시나요..?</a></div>
+                <div class="listCategory">커뮤니티</div>
+            </div>
+            <div class="list">
+                <div class="groupName"><a href="#">어.. 아이언은 좀..^^</a></div>
+                <div class="listCategory">커뮤니티</div>
+            </div>
+            <div class="list">
+                <div class="groupName"><a href="#">여기 동아리 좋아요!!</a></div>
+                <div class="listCategory">커뮤니티</div>
+            </div>
+            <div class="list">
+                <div class="groupName"><a href="#">지원서 양식에따라 지원서 작성해주시면 됩니다!</a></div>
+                <div class="listCategory">홍보</div>
+            </div>
+            <div class="list">
+                <div class="groupName"><a href="#">활동계획이 어떻게 되나요??</a></div>
+                <div class="listCategory">홍보</div>
+            </div>
+            <div class="list">
+                <div class="groupName"><a href="#">동아리 모집마감인가요ㅜㅜ?</a></div>
+                <div class="listCategory">커뮤니티</div>
+            </div>
+            <div class="list">
+                <div class="groupName"><a href="#">더이상 쓸 댓글 아이디어가 생각나지 않네요</a></div>
+                <div class="listCategory">커뮤니티</div>
+            </div>
+            <div class="list">
+                <div class="groupName"><a href="#">계대 동문 놀사람~</a></div>
+                <div class="listCategory">커뮤니티</div>
+            </div>
+            <div class="list">
+                <div class="groupName"><a href="#">혼밥인데 같이 밥먹을분 구해요</a></div>
+                <div class="listCategory">커뮤니티</div>
+            </div>
+            <div class="list">
+                <div class="groupName"><a href="#">혼밥은 나의 전유물이야</a></div>
+                <div class="listCategory">커뮤니티</div>
+            </div>
+            <div class="list">
+                <div class="groupName"><a href="#">집에 보내줘!!</a></div>
+                <div class="listCategory">커뮤니티</div>
+            </div>
+        </div>
+        <div id="page">
+            <img id="page_img" src="{% static 'page.png' %}" alt="page_img">
+        </div>
+        
+    </body>

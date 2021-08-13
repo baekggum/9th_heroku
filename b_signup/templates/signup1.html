@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'signup.css' %}">
+    <title>원동력</title>
+</head>
+
+<body>
+    <div class="signup-top">
+        <div class="signup-bottom">
+            <div id="level-line"></div>
+            <div class="level-circleing" id="circle1"></div>
+            <div class="level-circle-before" id="circle2"></div>
+            <div class="level-circle-before"></div>
+            <div class="level-circle-before" id="circle4"></div>
+            <div class="level-circle-before" id="circle5"></div>
+        </div>
+    </div>
+    <h2>Level.1 본인인증</h2>
+
+    <form action="{% url 'signup1' %}" method="post" id="signup1">
+        {% csrf_token %}
+        <div class="signup-text">
+            <div class="signup-line1">이름 : <input type="text" class="signup-length1" name="username" id="username">
+            </div><br><br>
+            <div class="signup-line1">생년월일 : <input type="date" class="signup-length1" name="birth" id="birth"></div>
+            <br><br>
+            <div class="signup-line1">전화번호 : <input type="tel" class="signup-length1" name="phoneNumber"
+                    id="phoneNumber"></div><br><br>
+        </div>
+        <button class="signup-button" type="button" onclick="checkAll();">다음페이지</button>
+    </form>
+
+</body>
+
+<script>
+
+    function checkAll() {
+        var username = document.getElementById("username");
+        var birth = document.getElementById("birth");
+        var phoneNumber = document.getElementById("phoneNumber");
+
+        if (username.value == "") {
+            alert('이름을 입력하세요');
+            username.focus();
+            return false;
+        }
+
+        var reg = /^[0-9]+/g; //숫자만 입력하는 정규식
+
+        if (!reg.test(phoneNumber.value)) {
+            alert("전화번호는 숫자만 입력할 수 있습니다.");
+            phoneNumber.focus();
+            return false;
+        }
+
+        document.getElementById("signup1").submit();
+    }
+</script>
+
+</html>

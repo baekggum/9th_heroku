@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'login.css' %}">
+    <title>원동력</title>
+</head>
+
+<body>
+    <div class="back">
+        <div class="login-left">
+            <div class="login-form">
+                <h1>웹 설명설명</h1>
+                <p>우리 웹사이트는 동아리 커뮤니티다.</p>
+            </div>
+        </div>
+        <div class="login-right">
+            <div class="login-form">
+                <form action="{% url 'login' %}" method="POST">
+                    {% csrf_token %}
+                    <h1 id="login-text">로그인</h1>
+                    <input type="text" name="ID" class="login-form-ip" placeholder="아이디"><br>
+                    <input type="password" name="password" class="login-form-ip" placeholder="비밀번호"><br>
+                    <label><input type="checkbox" name="login1" value="idid">아이디저장</label>
+                    <label><input type="checkbox" name="login2" value="autologin">자동로그인</label><br><br>
+                    <label><input type="submit" id="login-button" style="text-decoration: none;" value="로그인"></label>
+                    <div>아이디 / 비밀번호 찾기</div><br><br>
+                    <div>다모여의 친구가 아니라면? <b id="signup"><a href="{% url 'signup1' %}"
+                                style="list-style: none; text-decoration: none; color: #8AAE92;">회원가입</a></b></div>
+                </form>
+            </div>
+        </div>
+    </div>
+    </div>
+</body>
+
+</html>

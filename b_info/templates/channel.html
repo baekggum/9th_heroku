@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="channel.css">
+    <title>원동력</title>
+</head>
+
+<body>
+    <div class="header">
+        <div class="header-text">
+            <div id="left-space"></div>
+            <div id="center-text">
+                <div id="little-text">여기여기 붙어라</div>
+                <p>다모여</p>
+            </div>
+            <div class="header-bar">
+                <ul class="header-bar-right">
+                    <li>관리자</li>
+                    <li>
+                        <p>마이페이지</p>
+                    </li>
+                    <li>
+                        <p>로그아웃</p>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div id="nav-bar">
+            <ul class="nav-bar-l">
+                <li>홈</li>
+                <div class="nav-bar-line"></div>
+                <li>동아리</li>
+                <div class="nav-bar-line"></div>
+                <li>커뮤니티</li>
+                <div class="nav-bar-line"></div>
+                <li>홍보</li>
+                <div class="nav-bar-line"></div>
+                <li>나의 동아리</li>
+            </ul>
+            <ul class="nav-bar-r">
+                <li>
+                    <div id="search-bar">
+                        <input id="input" placeholder="어떤 동아리를 찾으시나요?">
+                        <div class="search-btn">
+                            <img src="search.png" alt="" width="18px" height="18px">
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div id="main">
+        <div id="main-left-box">
+            <div id="user-box">
+                <div id="user-box-up">
+                    <div id="user-pic">
+                        <img src="user_pic.png" alt="">
+                    </div>
+                    <div id="user-name-text">
+                        <p>관리자</p>
+                    </div>
+                </div>
+                <div id="user-box-dn">
+                    <div class="user-box-dn-btn"><p>마이페이지</p></div>
+                    <div class="user-box-dn-btn"><p>로그아웃</p></div>
+                </div>
+            </div>
+            
+            <div id="my-group">
+                <p>나의 동아리</p>
+                <ul>
+                    <li><a href="#" style="text-decoration: none; color: #616161">동아리 1</a></li>
+                    <li><a href="#" style="text-decoration: none; color: #616161">동아리 3</a></li>
+                    <li><a href="#" style="text-decoration: none; color: #616161">동아리 2</a></li>
+                    <p><a href="#" style="text-decoration: none; color: #616161">더보기</a></p>
+                </ul>
+            </div>
+
+            <div id="myMenu">
+                <p id="myHeader">MY PAGE</p>
+                <p id="menu1" class="menu_line">동아리 관리</p>
+                <ul id="category">
+                    <a href="file/myGroup.html" target="iframe"><li>게시글 관리</li></a>
+                    <a href="file/myWrite.html" target="iframe"><li>멤버 관리</li></a>
+                </ul>
+                
+                <p id="menu2" class="menu_line">사용자 관리</p>
+                <ul id="categor2">
+                    <a href="file/changePwd1.html" target="iframe"><li>인원 관리</li></a>
+                    <a href="file/excitingSec.html" target="iframe"><li>채널 관리</li></a>
+                </ul>
+            </div>
+        </div>
+
+        
+
+        <div id="main-center-box">
+            <iframe name="iframe" src="./mychat.html"></iframe>
+        </div>
+    </div>
+</body>
+
+</html>

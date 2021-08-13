@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'comread.css' %}">
+    <title>커뮤니티 글 읽기</title>
+    <style>
+        .editt{
+            display:flex;
+            text-align: right;
+            width: 100px;
+        }
+        .editt li{
+            margin:10px;
+            list-style: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="header">
+        <div class="header-text">
+            <div id="left-space"></div>
+            <div id="center-text">
+                <div id="little-text">원하는 동아리 역으로</div>
+                <p><a href="{% url 'main_yes' %}" style="text-decoration: none; color:black">원동력</a></p>
+            </div>
+            <div class="header-bar">
+                <ul class="header-bar-right">
+                    <li>{{ request.session.nickName }}님</li>
+                    <li>
+                        <p><a href="{% url 'mypage' %}" style="text-decoration: none; color: white;">마이페이지</a></p>
+                    </li>
+                    <li>
+                        <p><a href="{% url 'login' %}" style="text-decoration: none; color: white;">로그아웃</a></p>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div id="nav-bar">
+            <ul class="nav-bar-l">
+                <li><a href="{% url 'main_yes' %}" style="text-decoration: none; color: white;">홈</a></li>
+                <div class="nav-bar-line"></div>
+                <li><a href="{% url 'circle' %}" style="text-decoration: none; color: white;">동아리</a></li>
+                <div class="nav-bar-line"></div>
+                <li><a href="{% url 'community' %}" style="text-decoration: none; color: #2f4f4f;">커뮤니티</a></li>
+                <div class="nav-bar-line"></div>
+                <li><a href="{% url 'info' %}" style="text-decoration: none; color: white;">홍보</a></li>
+                <div class="nav-bar-line"></div>
+                <li><a href="{% url 'mypage' %}" style="text-decoration: none; color: white;">나의 동아리</a></li>
+            </ul>
+            <ul class="nav-bar-r">
+                <li>
+                    <div id="search-bar">
+                        <input id="input" placeholder="어떤 동아리를 찾으시나요?">
+                        <div class="search-btn">
+                            <img src="{% static 'search.png' %}" alt="" width="18px" height="18px">
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div id="main">
+        <div id="main-left-box">
+            <div id="user-box">
+                <div id="user-box-up">
+                    <div id="user-pic">
+                        <img src="{% static 'user_pic.png' %}" alt="">
+                    </div>
+                    <div id="user-name-text">
+                        <p>ooo님</p>
+                    </div>
+                </div>
+                <div id="user-box-dn">
+                    <div class="user-box-dn-btn">
+                        <p><a href="{% url 'mypage' %}" style="text-decoration: none; color: white;">마이페이지</a></p>
+                    </div>
+                    <div class="user-box-dn-btn">
+                        <p><a href="{% url 'login' %}" style="text-decoration: none; color: white;">로그아웃</a></p>
+                    </div>
+                </div>
+            </div>
+            <div id="my-group">
+                <p>나의 동아리</p>
+                <ul>
+                    <li>동아리 1</li>
+                    <li>동아리 2</li>
+                    <li>동아리 3</li>
+                    <p>더보기</p>
+                </ul>
+            </div>
+        </div>
+        <div id="main-center-box" style="height: 500px;">
+            <div id="b-brd" id="b-brdd">
+                <div id="b-brd-name">
+                    <div id="b-brd-img"></div>
+                    <div id="b-brd-r">
+                        <ul>
+                            <li></li>
+                            <li>제목</li>
+                            <li>게시판 종류</li>
+                        </ul>
+                    </div>
+                </div>
+                <div id="b-brd-scd">
+                    <div>작성일시</div>
+                    <div >00:00</div>
+                    <div>0000-00-00</div>
+                    <div>글쓴이</div>
+                    <div>000</div>
+                    <div></div>
+                    
+                </div>
+                <div id="b-brd-tbd-tarea" style="margin: 50px;">
+                    <img src="" alt="(사진이 있다면 여기에)" class="imgg"><br><br>
+                    <div style="font-size: 20px; height: 75%;">에베ㅔ레ㅔ렐레ㅔ 할거 너무 많아  나랑 시체놀이 할 사람~~</div>
+                    <div>
+                        <ul class="editt">
+                            <li><a href="{% url 'comedit' %}" style="text-decoration: none; color:black;">수정</a></li>
+                            <li><a href="#" style="text-decoration: none; color:black;">삭제</a></li>
+                        </ul>
+                    </div>
+                </div>
+                
+            </div>
+            <div id="b-brd-trd">
+                <div id="brd-trd-flx">
+                    <ul>
+                        <li class="brd-submit1"><a href="#">스크랩</a></li>
+                        <li class="brd-submit2"><a href="#"><img src="{% static 'share.png' %}" alt="">공유</a></li>
+                    </ul>
+                    <ul>
+                        <li class="brd-submit1"><a href="{% url 'community' %}">목록</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div id="b-brd-cmt">
+                남겨진 댓글이 없습니다.
+            </div>
+            <div id="b-brd-cmt-wr">
+                <div id="cmt-wr-user">
+                    <div id="cmt-wr-user-img"><img src="{% static 'cmt_user.png' %}" alt="" width="50px" height="50px"></div>
+                    <div id="cmt-wr-user-name">OOO님</div>
+                </div>
+                <div id="cmt-wr-txt">
+                    <textarea id="cmt-wr-txta" placeholder="댓글을 입력해주세요"></textarea>
+                </div>
+                <div id="cmt-wr-flx">
+                    <ul>
+                        <li><input type="checkbox" name="wr-check" id="wr-check"></li>
+                        <li id="cmt-wr-flx-text">작성자에게만 보이게</li>
+                    </ul>
+                    <ul>
+                        <li class="brd-submit2"><a href="#">댓글 달기</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

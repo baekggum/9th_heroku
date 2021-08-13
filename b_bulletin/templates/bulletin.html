@@ -1,0 +1,15 @@
+<div>
+    <form action="{% url 'create_promo_post' %}" method="POST">
+        {% csrf_token %}
+        title <input type="text" name="title"><br>
+        recruitStartDate <input type="date" name="recruitStartDate"><br>
+        recruitEndDate  <input type="date" name="recruitEndDate"><br>
+        howManyMember <input type="number" name="howManyMember"><br>
+        keyword <input type="text" name="keyword"><br>
+        detailContent <input type="text" name="detailContent"><br>
+        img <input type="text" name="img"><br>
+        circlename <input type="text" name="circlename"><br>
+        nickName <input type="text" name="nickName"><br>
+        <input type="submit">
+    </form>
+</div>

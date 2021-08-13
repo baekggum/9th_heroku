@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'signup4.css' %}">
+    <title>원동력</title>
+</head>
+
+<body>
+    <div class="signup-top">
+        <div class="signup-bottom">
+            <div id="level-line"></div>
+            <div class="level-circle-after" id="circle1"></div>
+            <div class="level-circle-after" id="circle2"></div>
+            <div class="level-circle-after"></div>
+            <div class="level-circleing" id="circle4"></div>
+            <div class="level-circle-before" id="circle5"></div>
+        </div>
+    </div>
+    <h2>Level.4 ID & PW 및 관심분야 설정</h2>
+    <form action="{% url 'signup4' %}" method="post">
+        {% csrf_token %}
+        <div class="signup-text">
+            <div class="signup-line4"> 아이디 : <input type="text" name="login_ID">
+                <button class="signup-length-button4">중복확인</botton>
+            </div>
+            <div class="signup-line4"> 닉네임 : <input type="text" name="nickName">
+                <button class="signup-length-button4">중복확인</botton>
+            </div>
+            <div class="signup-line4" id="password">비밀번호 : <input type="password" class="signup-length4"
+                    name="password"></div>
+            <div class="signup-line4" id="passwordconf">비밀번호 확인 : <input type="password" class="signup-length4"
+                    name="re_password"></div>
+            <br>
+            <fieldset id="fieldset">
+                <legend>관심분야 </legend>
+                <div class="chkboxdiv">
+
+                    <table cellspacing: 0 style="width: 100%;">
+                        <tr style="text-align: justify;">
+                            <td><input type="checkbox" class="chkbt" name="culture_art"> 문화/예술</td>
+                            <td><input type="checkbox" class="chkbt" name="volunteer_social"> 봉사/사회활동</td>
+                            <td><input type="checkbox" class="chkbt" name="academic_cultivative"> 학술/교양</td>
+                            <td><input type="checkbox" class="chkbt" name="startup_employment"> 창업/취업</td>
+                        </tr>
+                        <tr style="text-align: justify;">
+                            <td><input type="checkbox" class="chkbt" name="language"> 어학</td>
+                            <td><input type="checkbox" class="chkbt" name="physics"> 체육</td>
+                            <td><input type="checkbox" class="chkbt" name="coding"> 코딩</td>
+                            <td><input type="checkbox" class="chkbt" name="study"> 스터디</td>
+                        </tr>
+                    </table>
+                </div>
+
+            </fieldset>
+
+
+            <p>중복체크 가능합니다.</p>
+        </div>
+
+
+        <button class="signup-button" type="submit">다음페이지</button>
+    </form>
+
+</body>
+
+</html>
+
+</html>

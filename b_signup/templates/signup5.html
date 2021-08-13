@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+    {% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'signup.css' %}">
+    <title>원동력</title>
+</head>
+<body>
+    <div class="signup-top">
+        <div class="signup-bottom">
+            <div id="level-line"></div>
+            <div class="level-circle-after" id="circle1"></div>
+            <div class="level-circle-after" id="circle2"></div>
+            <div class="level-circle-after"></div>
+            <div class="level-circle-after" id="circle4"></div>
+            <div class="level-circleing" id="circle5"></div>
+        </div>
+    </div>
+    <h2>Level.5 회원가입 완료</h2>
+        <div id="signup-text5">
+            다모여의 부원이 되신것을 환영합니다 :)<br>
+            즐거운 동아리 활동 하시길 바랍니다.
+    </div>
+    <button class="signup-button" id="signup-button-finish"><a href="{% url 'login' %}" style="list-style: none; text-decoration: none; color: #ffffff;">로그인하러가기</a></button>
+
+</body>
+
+</html>
+</html>

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>내가 쓴 글 | 다모여 </title>
+    <style>
+        body {
+    padding: 20px;
+    padding-top: 0px
+}
+
+#title {
+    border-bottom: 1px solid #616161;
+}
+
+#container {
+    width: 96%;
+    height: 100%;
+    margin-top: 10px;
+    padding: 20px;
+    background-color: #DCEDC1;
+}
+
+.list {
+    width: 100%;
+    height: 50px;
+    background-color: #F9F8EB;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+    padding: 0 5px 0 5px;
+}
+
+.listCategory {
+    display: flex;
+    width: 200px;
+    height: 20px;
+    color: #8AAE92;
+    font-weight: 500;
+    font-size: 20px;
+    justify-content: flex-end;
+    margin: 25px 25px 25px 0;
+}
+
+#container .list .groupName a {
+    text-decoration: none;
+    color: #000000;
+    font-weight: 500;
+    font-size: 20px;
+}
+
+#page {
+    display: flex;
+    flex-direction: 40;
+    justify-content: center;
+    align-content: center;
+    transform: scale(0.3);
+}
+    </style>
+</head>
+    <body>
+        <div id="title">
+            <h1>내가 쓴 글</h1>
+        </div>
+        <div id="container">
+            <div class="list">
+                <div class="groupName"><a href="#">멋사 2팀 구인구직합니다..</a></div>
+                <div class="listCategory">홍보</div>
+            </div>
+            <div class="list">
+                <div class="groupName"><a href="#">롤 5인큐 구함</a></div>
+                <div class="listCategory">커뮤니티</div>
+            </div>
+            <div class="list">
+                <div class="groupName"><a href="#">OO동아리 어때요?</a></div>
+                <div class="listCategory">커뮤니티</div>
+            </div>
+        </div>
+        <div id="page">
+            <img id="page_img" src="{% static 'page.png' %}" alt="page_img">
+        </div>
+    </body>
+</html>

@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="kr">
+{% load static %}
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="http://code.jquery.com/jquery-latest.js"></script>
+    <link rel="stylesheet" href="{% static 'stylere.css' %}">
+    <title>원동력</title>
+</head>
+
+<body>
+    <div class="header">
+        <div class="header-text">
+            <div id="center-text">
+                <div id="little-text">원하는 동아리 역으로</div>
+                <p><a href="{% url 'main_yes' %}" style="text-decoration: none; color:black">원동력</a></p>
+            </div>
+            <div class="header-bar">
+                <ul class="header-bar-right">
+                    <li>{{ request.session.nickName }}님</li>
+                    <li>
+                        <p><a href="../mypage/mypage.html" style="text-decoration: none; color: white;">마이페이지</a></p>
+                    </li>
+                    <li>
+                        <p><a href="../login/login/login.html" style="text-decoration: none; color: white;">로그아웃</a></p>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <ul class="nav-bar">
+            <li><a href="{% url 'main_yes' %}" style="text-decoration: none; color: white;">홈</a></li>
+            <div class="nav-bar-line"></div>
+            <li><a href="#" style="text-decoration: none; color: white;">동아리</a></li>
+            <div class="nav-bar-line"></div>
+            <li><a href="{% url 'community' %}" style="text-decoration: none; color: white;">커뮤니티</a></li>
+            <div class="nav-bar-line"></div>
+            <li><a href="{% url 'info' %}" style="text-decoration: none; color: white;">홍보</a></li>
+            <div class="nav-bar-line"></div>
+            <li><a href="{% url 'mypage' %}" style="text-decoration: none; color: white;">나의 동아리</a></li>
+            <li>
+                <div id="search-bar">
+                    <input id="input" placeholder="어떤 동아리를 찾으시나요?">
+                    <div class="search-btn">
+                        <img src="{% static 'search.png' %}" alt="" width="18px" height="18px">
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <div id="main">
+        <div id="main-left-box">
+            <div id="user-box">
+                <div id="user-box-up">
+                    <div id="user-pic">
+                        <img src="{% static 'user_pic.png' %}" alt="">
+                    </div>
+                    <div id="user-name-text">
+                        <p>{{ request.session.nickName }}님</p>
+                    </div>
+                </div>
+                <div id="user-box-dn">
+                    <div class="user-box-dn-btn">
+                        <p><a href="{% url 'mypage' %}">마이페이지</a></p>
+                    </div>
+                    <div class="user-box-dn-btn">
+                        <p><a href="{% url 'login' %}" style="text-decoration: none; color: white;">로그아웃</a></p>
+                    </div>
+                </div>
+            </div>
+            <div id="my-group">
+                <p>나의 동아리</p>
+                <ul>
+                    <li>동아리 1</li>
+                    <li>동아리 2</li>
+                    <li>동아리 3</li>
+                    <p>더보기</p>
+                </ul>
+            </div>
+            <div id="my-group">
+                <span id="mytext">홍보</span>
+                <span id="mytext" class="mytext_line">유형</span>
+                <ul id="category">
+                    <li>전체보기</li>
+                    <li>자유게시판</li>
+                    <li>문화 / 예술</li>
+                    <li>봉사 / 사회활동</li>
+                    <li>학술 / 교양</li>
+                    <li>창업 / 취업</li>
+                    <li>체육</li>
+                    <li>IT</li>
+                    <li>스터디</li>
+                    <li>어학</li>
+                </ul>
+            </div>
+        </div>
+        <div id="main-center-box">
+            <form action="{% url 'regist' %}" method="POST" id="myForm" enctype="multipart/form-data">
+                {% csrf_token %}
+                <div>
+                    <h1 class="red_text">모집공고</h1><span class="sub_text">*별표 표시는 필수 사항입니다</span>
+                </div>
+                <select name="order" form="myForm">
+                    {% for circle in circlelist %}
+                    <option value="{{circle.circleID.name}}">{{circle.circleID.name}}</option>
+                    {% endfor %}
+                </select>
+                <input type="text" placeholder="*제목" name="title" />
+                <!-- <h1>주최기관</h1>
+                <input type="text" placeholder="*기관명"> -->
+                <h1>모집기간</h1>
+                <input type="date" placeholder="모집기간시작" name="recruitStartDate" />
+                <input type="date" placeholder="모집기간끝" name="recruitEndDate" />
+                <h1>모집인원</h1>
+                <input type="text" placeholder="00명" name="howManyMember" />
+                <h1>키워드</h1>
+                <input type="text" placeholder="ex) #봉사#컴공" name="keyword" />
+                <h1>상세내용</h1>
+                <textarea name="detailContent" cols="30" rows="10" placeholder="*상세내용 작성해주세요"></textarea>
+                <div>
+                    <h1 class="red_text">이미지</h1><span class="sub_text">*1080px 권장</span>
+                </div>
+                <div>
+                    <input type="file" placeholder="*이미지를 올려주세요" name="img" />
+                    <!-- <div class="add_button img_button mouse_action">파일선택</div> -->
+                </div>
+                <br>
+                <br>
+                <br>
+                <br>
+                <div class="line"></div>
+                <h1>지원양식</h1>
+                <div class="add_thing_list">
+                    <div class="add_thing">
+                        <input type="text" placeholder="등등" class="add_text_button" name="apply1">
+                    </div>
+                </div>
+                <button type="button" id="remove_button_mouse_action">-</button>
+                <button type="button" id="add_button_mouse_action">+</button>
+                <input type="hidden" id="count" name="count" value="" />
+                <br>
+                <br>
+                <br>
+                <!-- <div class="apply_button mouse_action"><a href="{% url 'info' %}">등록하기</a></div> -->
+                <input type="submit" value="등록하기" />
+            </form>
+        </div>
+    </div>
+</body>
+
+<script>
+    var a = 1;
+    $(function () {
+        $('#add_button_mouse_action').click(function (e) {
+            const add_thing = document.createElement('div');
+            const add_thing_list = document.querySelector('.add_thing_list')
+
+            if(a < 3){
+                add_thing.innerHTML = `<input type="text" placeholder="등등" class="add_text_button" name="apply${a+1}"/>`;
+                add_thing_list.appendChild(add_thing);
+                a+=1;
+                document.getElementById('count').value = a;
+            }
+        });
+        $('#remove_button_mouse_action').click(function (e) {
+            if(a > 1){
+                $('.add_text_button').last().remove();
+                a-=1;
+                document.getElementById('count').value = a;
+            }
+        });
+    });
+    
+</script>
+
+</html>

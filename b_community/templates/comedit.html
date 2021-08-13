@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="kr">
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'stylere.css' %}">
+    <title>커뮤니티 수정</title>
+</head>
+
+<body>
+    <div class="header">
+        <div class="header-text">
+            <div id="center-text">
+                <div id="little-text">원하는 동아리 역으로</div>
+                <p><a href="{% url 'main_yes' %}" style="text-decoration: none; color:black">원동력</a></p>
+            </div>
+            <div class="header-bar">
+                <ul class="header-bar-right">
+                    <li>{{ request.session.nickName }}님</li>
+                    <li>
+                        <p><a href="{% url 'mypage' %}" style="text-decoration: none; color: white;">마이페이지</a></p>
+                    </li>
+                    <li>
+                        <p><a href="{% url 'login' %}" style="text-decoration: none; color: white;">로그아웃</a></p>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <ul class="nav-bar">
+            <li><a href="{% url 'main_yes' %}" style="text-decoration: none; color: white;">홈</a></li>
+            <div class="nav-bar-line"></div>
+            <li><a href="{% url 'circle' %}" style="text-decoration: none; color: white;">동아리</a></li>
+            <div class="nav-bar-line"></div>
+            <li><a href="{% url 'community' %}" style="text-decoration: none; color: #2f4f4f;">커뮤니티</a></li>
+            <div class="nav-bar-line"></div>
+            <li><a href="{% url 'info' %}" style="text-decoration: none; color: white;">홍보</a></li>
+            <div class="nav-bar-line"></div>
+            <li><a href="{% url 'mypage' %}" style="text-decoration: none; color: white;">나의 동아리</a></li>
+            <li>
+                <div id="search-bar">
+                    <input id="input" placeholder="어떤 동아리를 찾으시나요?">
+                    <div class="search-btn">
+                        <img src="{% static 'search.png' %}" alt="" width="18px" height="18px">
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <div id="main">
+        <div id="main-left-box">
+            <div id="user-box">
+                <div id="user-box-up">
+                    <div id="user-pic">
+                        <img src="{% static 'user_pic.png' %}" alt="">
+                    </div>
+                    <div id="user-name-text">
+                        <p>ooo님</p>
+                    </div>
+                </div>
+                <div id="user-box-dn">
+                    <div class="user-box-dn-btn"><p><a href="{% url 'mypage' %}" style="text-decoration: none; color: white;">마이페이지</a></p></div>
+                    <div class="user-box-dn-btn"><p><a href="{% url 'login' %}" style="text-decoration: none; color: white;">로그아웃</a></p></div>
+                </div>
+            </div>
+            <div id="my-group">
+                <p>나의 동아리</p>
+                <ul>
+                    <li>동아리 1</li>
+                    <li>동아리 2</li>
+                    <li>동아리 3</li>
+                    <p>더보기</p>
+                </ul>
+            </div>     
+        </div>
+        <div id="main-center-box">
+            <div><h1 class="red_text">커뮤니티 글쓰기</h1></div><br>
+            <h1>제목</h1>
+            <input type="text" placeholder="제목을 입력해주세요">
+            <h2>카테고리</h2>
+            <div>
+                <select>
+                    <option value="free">자유게시판</option>
+                    <option value="art">문화 / 예술</option>
+                    <option value="social">봉사 / 사회활동</option>
+                    <option value="scho">학술 / 교양</option>
+                    <option value="job">창업 / 취업</option>
+                    <option value="pt">체육</option>
+                    <option value="it">IT</option>
+                    <option value="study">스터디</option>
+                    <option value="lang">어학</option>
+                </select></div><br><br>
+           <h1>내용</h1>
+            <textarea name="" id="" cols="30" rows="10" placeholder="*내용 작성해주세요" style=" width: 900px; height: 500px;"></textarea>
+            <div><h1 class="red_text">이미지</h1><span class="sub_text">*1080px 권장</span></div>
+           <div>
+               <input type="text" placeholder="*이미지를 올려주세요(선택사항)">
+               <div class="add_button img_button mouse_action">파일선택</div>
+           </div>
+           <br>
+           <br>
+
+            <div class="apply_button mouse_action"><a href="{% url 'comread' %}">수정완료</a></div>
+        </div>
+            <div id="page">
+            </div>
+            <div id="page">
+                
+            </div>
+        </div>
+        
+    </div>
+</body>
+
+</html>

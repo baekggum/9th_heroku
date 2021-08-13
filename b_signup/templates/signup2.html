@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'signup.css' %}">
+    <title>원동력</title>
+</head>
+
+<body>
+    <div class="signup-top">
+        <div class="signup-bottom">
+            <div id="level-line"></div>
+            <div class="level-circle-after" id="circle1"></div>
+            <div class="level-circleing" id="circle2"></div>
+            <div class="level-circle-before"></div>
+            <div class="level-circle-before" id="circle4"></div>
+            <div class="level-circle-before" id="circle5"></div>
+        </div>
+    </div>
+    <h2>Level.2 학교 인증</h2>
+
+    <form action="{% url 'signup2' %}" method="post" id="signup2">
+        {% csrf_token %}
+        <div class="signup-text">
+            <div class="signup-line2">입학년도(일까지) : <input type="date" class="signup-length2" name="enterYear" id="enterYear"></div><br><br>
+            <div class="signup-line2">학교 :
+                <select class="signup-length2" name="school">
+                    <option value="kmu" name="kmu">계명대학교</option>
+                    <option value="knu" name="knu">경북대학교</option>
+                    <option value="dgu" name="dgu">대구대학교</option>
+                    <option value="dgtu" name="dgtu">대가대학교</option>
+                    <option value="ynu" name="ynu">영남대학교</option>
+                </select>
+            </div><br><br>
+            <div class="signup-line2">학교메일 : <input type="email" class="signup-length-button" name="email" id="email">
+            </div><br><br>
+            <div class="signup-line2">인증코드 : <input type="text" class="signup-length-button2">
+                <button class="signup-length-button2">제출</botton>
+            </div><br>
+        </div>
+        <button class="signup-button" type="submit" onclick="checkAll();">다음페이지</button>
+    </form>
+
+</body>
+
+<script>
+    function checkAll() {
+        var enterYear = Date.parse(document.getElementById("enterYear"));
+        var email = document.getElementById("email");
+
+        // if (isNaN(enterYear)) {
+        //     alert('입학년도를 입력해주세요');
+        //     enterYear.focus();
+        //     return false;
+        // }
+
+        // var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+
+        var email = document.getElementById('email').value;
+        if (email == '' || !re.test($email)) {
+            alert("올바른 이메일 주소를 입력하세요")
+            email.focus();
+            return false;
+        }
+
+        document.getElementById("signup2").submit();
+    }
+</script>
+
+</html>

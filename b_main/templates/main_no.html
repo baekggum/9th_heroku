@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'main.css' %}">
+    <title>원동력</title>
+    <style>
+        * {box-sizing: border-box}
+        /* body {font-family: Verdana, sans-serif; margin:0} */
+        .mySlides1, .mySlides2 {display: none}
+        
+        img {vertical-align: middle;}
+
+        #main_column{
+            display: flex;
+            flex-direction: column;
+            background-color: #F4F9F4;
+        }
+
+        #main-center-box{
+            width: 70%;
+            margin: 3rem;
+        }
+
+        .poster_card{
+            border: 4px solid #DDEDC6;
+            background-color: #F9F8EC;
+            border-radius: 20px;
+            margin: 3rem;
+            width: 400px;
+            height: 200px;
+            display: flex;
+        }
+
+        .card_list{
+            border: 4px solid #DDEDC6;
+            background-color: #F9F8EC;
+            border-radius: 20px;
+            margin: 3rem;
+            width: 600px;
+            height: 250px;
+            display: flex;
+        }
+        
+        /* Slideshow container */
+        .slideshow-container {
+          max-width: 1400px;
+          position: relative;
+          margin: auto;
+        }
+        
+        /* Next & previous buttons */
+        .prev, .next {
+          cursor: pointer;
+          position: absolute;
+          top: 50%;
+          width: auto;
+          padding: 16px;
+          margin-top: -22px;
+          color: black;
+          font-weight: bold;
+          font-size: 34px;
+          transition: 0.6s ease;
+          border-radius: 0 3px 3px 0;
+          user-select: none;
+
+        }
+        
+        /* Position the "next button" to the right */
+        .next {
+          right: 0;
+          border-radius: 3px 0 0 3px;
+        }
+        
+        /* On hover, add a black background color with a little bit see-through */
+        .prev:hover, .next:hover {
+          background-color: rgba(0,0,0,0.8);
+        }
+        
+        /* Caption text */
+        .text {
+          color: #f2f2f2;
+          font-size: 15px;
+          padding: 8px 12px;
+          position: absolute;
+          bottom: 8px;
+          width: 100%;
+          text-align: center;
+        }
+        
+        /* Number text (1/3 etc) */
+        .numbertext {
+          color: #f2f2f2;
+          font-size: 12px;
+          padding: 8px 12px;
+          position: absolute;
+          top: 0;
+        }
+        
+        /* The dots/bullets/indicators */
+        .dot {
+          cursor: pointer;
+          height: 15px;
+          width: 15px;
+          margin: 0 5px;
+          background-color: #bbb;
+          border-radius: 50%;
+          display: inline-block;
+          transition: background-color 0.6s ease;
+        }
+        
+        .active, .dot:hover {
+          background-color: #717171;
+        }
+        
+        /* Fading animation */
+        .fade {
+          -webkit-animation-name: fade;
+          -webkit-animation-duration: 1.5s;
+          animation-name: fade;
+          animation-duration: 1.5s;
+          text-align: center;
+        }
+        
+        @-webkit-keyframes fade {
+          from {opacity: .4} 
+          to {opacity: 1}
+        }
+        
+        @keyframes fade {
+          from {opacity: .4} 
+          to {opacity: 1}
+        }
+        
+        /* On smaller screens, decrease text size */
+        @media only screen and (max-width: 300px) {
+          .prev, .next,.text {font-size: 11px}
+        }
+        </style>
+</head>
+
+<body>
+    <div class="header">
+        <div class="header-text">
+            <div id="left-space"></div>
+            <div id="center-text">
+                <div id="little-text">원하는 동아리 역으로</div>
+                <p><a href="{% url 'main_no' %}" style="text-decoration: none; color:black">원동력</a></p>
+            </div>
+            <div class="header-bar">
+                <ul class="header-bar-right">
+                    <li>ooo님</li>
+                    <li>
+                        <p><a href="{% url 'mypage' %}" style="text-decoration: none; color: white;">마이페이지</a></p>
+                    </li>
+                    <li>
+                        <p><a href="{% url 'login' %}" style="text-decoration: none; color: white;">로그아웃</a></p>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div id="nav-bar">
+            <ul class="nav-bar-l">
+                <li><a href="{% url 'main_yes' %}" style="text-decoration: none; color: white;">홈</a></li>
+                <div class="nav-bar-line"></div>
+                <li><a href="#" style="text-decoration: none; color: white;">동아리</a></li>
+                <div class="nav-bar-line"></div>
+                <li><a href="{% url 'community' %}" style="text-decoration: none; color: white;">커뮤니티</a></li>
+                <div class="nav-bar-line"></div>
+                <li><a href="{% url 'info' %}" style="text-decoration: none; color: white;">홍보</a></li>
+                <div class="nav-bar-line"></div>
+                <li><a href="{% url 'mypage' %}" style="text-decoration: none; color: white;">나의 동아리</a></li>
+            </ul>
+            <ul class="nav-bar-r">
+                <li>
+                    <div id="search-bar">
+                        <input id="input" placeholder="어떤 동아리를 찾으시나요?">
+                        <div class="search-btn">
+                            <img src="{% static 'search.png' %}" alt="" width="18px" height="18px">
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div id="main_column">
+    <div id="main">
+            <div id="main-center-box">
+                    <div class="slideshow-container">
+        
+                        <div class="mySlides1 fade">
+                          <!-- <div class="numbertext">1 / 3</div> -->
+                          <img src="{% static 'comtition_01.jpeg' %}" style="width:80%; height: 500px;">
+                          <!-- <div class="text">Caption Text</div> -->
+                        </div>
+                        
+                        <div class="mySlides1 fade">
+                          <!-- <div class="numbertext">2 / 3</div> -->
+                          <img src="{% static 'comtition_02.jpeg' %}" style="width:80%; height: 500px;">
+                          <!-- <div class="text">Caption Two</div> -->
+                        </div>
+                        
+                        <div class="mySlides1 fade">
+                          <!-- <div class="numbertext">3 / 3</div> -->
+                          <img src="{% static 'comtition_03.jpeg' %}" style="width:80%; height: 500px;">
+                          <!-- <div class="text">Caption Three</div> -->
+                        </div>
+                        
+                        <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+                        <a class="next" onclick="plusSlides(1)">&#10095;</a>
+                        
+                        </div>
+                        <br>
+                        
+                        <div style="text-align:center;">
+                          <span class="dot" onclick="currentSlide(1)"></span> 
+                          <span class="dot" onclick="currentSlide(2)"></span> 
+                          <span class="dot" onclick="currentSlide(3)"></span> 
+                        </div>
+                </div>
+                <div id="main-left-box">
+                        <div id="user-box">
+                            <div id="user-box-up">
+                                <div id="user-pic">
+                                    <img src="{% static 'user_pic.png' %}" alt="">
+                                </div>
+                                <div id="user-name-text">
+                                    <p>ooo님</p>
+                                </div>
+                            </div>
+                            <div id="user-box-dn">
+                                <div class="user-box-dn-btn"><p><a href="{% url 'mypage' %}" style="text-decoration: none; color: white;">마이페이지</a></p></div>
+                                <div class="user-box-dn-btn"><p><a href="{% url 'login' %}" style="text-decoration: none; color: white;">로그아웃</a></p></div>
+                            </div>
+                        </div>
+                        <div id="my-group">
+                            <p>나의 동아리</p>
+                            <p style="background-color: #F9F8EB; padding: 1.5rem 0 1.5rem 0; text-align: center; font-size: 28px;">
+                                아직 가입된 동아리가 없습니다.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+        <h2 style="margin: 3rem 6rem 0 6rem; color: #808280;">추천 동아리</h2>
+        <div class="slideshow-container" style="width: 100%;">
+        
+                <div class="mySlides2 fade" style="width: 100%;">
+                  <!-- <div class="numbertext">1 / 3</div> -->
+                  <div style="display: flex;">
+                        <div class="poster_card">
+                                <img src="{% static 'comtition_01.jpeg' %}" style="width:40%; border-radius: 20px;">
+                                <div>
+                                    <div style="display: flex; justify-content: space-between; margin-right: 1rem; margin-left: 1rem;">
+                                        <h5 style="font-size: 22px; margin: 0.5rem;">동아리 이름</h5>
+                                        <h6 style="margin: 0.5rem;">D-16</h6>
+                                    </div>
+                                    <h6 style="margin: 0; font-size: 18px;">봉사/사회활동</h6>
+                                    <p style="border-top: 1px solid lightgray; width: 80%; margin-left: 1.5rem;">
+                                        이 동아리는 오래된 역사를 자랑하며 사회와 봉사정신으로 똘똘 뭉친 젊은이들이 다같이 봉사활동을 즐기며...
+                                    </p>
+                                </div>
+                          </div>
+                          <div class="poster_card">
+                                <img src="{% static 'comtition_01.jpeg' %}" style="width:40%; border-radius: 20px;">
+                                <div>
+                                    <div style="display: flex; justify-content: space-between; margin-right: 1rem; margin-left: 1rem;">
+                                        <h5 style="font-size: 22px; margin: 0.5rem;">동아리 이름</h5>
+                                        <h6 style="margin: 0.5rem;">D-16</h6>
+                                    </div>
+                                    <h6 style="margin: 0; font-size: 18px;">봉사/사회활동</h6>
+                                    <p style="border-top: 1px solid lightgray; width: 80%; margin-left: 1.5rem;">
+                                        이 동아리는 오래된 역사를 자랑하며 사회와 봉사정신으로 똘똘 뭉친 젊은이들이 다같이 봉사활동을 즐기며...
+                                    </p>
+                                </div>
+                          </div>
+                          <div class="poster_card">
+                                <img src="{% static 'comtition_01.jpeg' %}" style="width:40%; border-radius: 20px;">
+                                <div>
+                                    <div style="display: flex; justify-content: space-between; margin-right: 1rem; margin-left: 1rem;">
+                                        <h5 style="font-size: 22px; margin: 0.5rem;">동아리 이름</h5>
+                                        <h6 style="margin: 0.5rem;">D-16</h6>
+                                    </div>
+                                    <h6 style="margin: 0; font-size: 18px;">봉사/사회활동</h6>
+                                    <p style="border-top: 1px solid lightgray; width: 80%; margin-left: 1.5rem;">
+                                        이 동아리는 오래된 역사를 자랑하며 사회와 봉사정신으로 똘똘 뭉친 젊은이들이 다같이 봉사활동을 즐기며...
+                                    </p>
+                                </div>
+                          </div>
+                  </div>
+                  <!-- <div class="text">Caption Text</div> -->
+                </div>
+                
+                <div class="mySlides2 fade">
+                  <!-- <div class="numbertext">2 / 3</div> -->
+                  <img src="{% static 'comtition_02.jpeg' %}" style="width:80%; height: 500px;">
+                  <!-- <div class="text">Caption Two</div> -->
+                </div>
+                
+                <div class="mySlides2 fade">
+                  <!-- <div class="numbertext">3 / 3</div> -->
+                  <img src="{% static 'comtition_03.jpeg' %}" style="width:80%; height: 500px;">
+                  <!-- <div class="text">Caption Three</div> -->
+                </div>
+                
+                <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+                <a class="next" onclick="plusSlides(1)">&#10095;</a>
+                
+            </div>
+            <div style="text-align:center;">
+                  <span class="dot" onclick="currentSlide(1)"></span> 
+                  <span class="dot" onclick="currentSlide(2)"></span> 
+                  <span class="dot" onclick="currentSlide(3)"></span> 
+                  <span class="dot" onclick="currentSlide(4)"></span> 
+                  <span class="dot" onclick="currentSlide(5)"></span> 
+                  <span class="dot" onclick="currentSlide(6)"></span> 
+                  
+            </div>
+        <h2 style="margin: 3rem 6rem 0 6rem; color: #808280;">유형별 동아리</h2>
+        <div style="display: flex; justify-content: space-around; margin: auto; width: 60%;">
+            <a href="#" style="color: white; text-decoration: none;"><span style="background-color: #A7C1AD; border-radius: 20px; padding: 2px 12px 2px 12px; font-size: 18px;">전체</span></a>
+            <a href="#" style="color: white; text-decoration: none;"><span style="background-color: #A7C1AD; border-radius: 20px; padding: 2px 12px 2px 12px; font-size: 18px;">문화/예술</span></a>
+            <a href="#" style="color: white; text-decoration: none;"><span style="background-color: #A7C1AD; border-radius: 20px; padding: 2px 12px 2px 12px; font-size: 18px;">봉사/사회활동</span></a>
+            <a href="#" style="color: white; text-decoration: none;"><span style="background-color: #A7C1AD; border-radius: 20px; padding: 2px 12px 2px 12px; font-size: 18px;">학술/교양</span></a>
+            <a href="#" style="color: white; text-decoration: none;"><span style="background-color: #A7C1AD; border-radius: 20px; padding: 2px 12px 2px 12px; font-size: 18px;">창업/취업</span></a>
+            <a href="#" style="color: white; text-decoration: none;"><span style="background-color: #A7C1AD; border-radius: 20px; padding: 2px 12px 2px 12px; font-size: 18px;">어학</span></a>
+            <a href="#" style="color: white; text-decoration: none;"><span style="background-color: #A7C1AD; border-radius: 20px; padding: 2px 12px 2px 12px; font-size: 18px;">체육</span></a>
+            <a href="#" style="color: white; text-decoration: none;"><span style="background-color: #A7C1AD; border-radius: 20px; padding: 2px 12px 2px 12px; font-size: 18px;">친목</span></a>
+            <a href="#" style="color: white; text-decoration: none;"><span style="background-color: #A7C1AD; border-radius: 20px; padding: 2px 12px 2px 12px; font-size: 18px;">기타</span></a>
+        </div>
+        <div style="display: flex; justify-content: center;">
+            <div class="card_list">
+                    <img src="{% static 'comtition_01.jpeg' %}" style="width:40%; border-radius: 20px;">
+                    <div>
+                        <div style="display: flex; justify-content: space-between; margin-right: 1rem; margin-left: 1rem;">
+                            <h5 style="font-size: 22px; margin: 0.5rem;">동아리 이름</h5>
+                            <h6 style="margin: 0.5rem;">D-16</h6>
+                        </div>
+                        <h6 style="margin: 0; font-size: 18px; text-align: center;">봉사/사회활동</h6>
+                        <p style="border-top: 1px solid lightgray; width: 80%; margin-left: 1.5rem;">
+                            이 동아리는 오래된 역사를 자랑하며 사회와 봉사정신으로 똘똘 뭉친 젊은이들이 다같이 봉사활동을 즐기며 놀땐 놀고 마실땐 마시며 정말이지 동아리는 동아리답게라는 말이 어울리는 동아리라고 할 수 있다.
+                        </p>
+                        <div style="display: flex; justify-content: flex-end; margin: 0 1rem 0 1rem;">
+                                <img src="{% static 'Daco_717473.png' %}" width="18" height="15" style="margin-top: 2px;"/>
+                                <p style="margin: 0;">30</p>
+                            </div>
+                    </div>
+            </div>
+            <div class="card_list">
+                    <img src="{% static 'comtition_02.jpeg' %}" style="width:40%; border-radius: 20px;">
+                    <div>
+                        <div style="display: flex; justify-content: space-between; margin-right: 1rem; margin-left: 1rem;">
+                            <h5 style="font-size: 22px; margin: 0.5rem;">동아리 이름</h5>
+                            <h6 style="margin: 0.5rem;">D-16</h6>
+                        </div>
+                        <h6 style="margin: 0; font-size: 18px; text-align: center;">봉사/사회활동</h6>
+                        <p style="border-top: 1px solid lightgray; width: 80%; margin-left: 1.5rem;">
+                            이 동아리는 오래된 역사를 자랑하며 사회와 봉사정신으로 똘똘 뭉친 젊은이들이 다같이 봉사활동을 즐기며 놀땐 놀고 마실땐 마시며 정말이지 동아리는 동아리답게라는 말이 어울리는 동아리라고 할 수 있다.
+                        </p>
+                        <div style="display: flex; justify-content: flex-end; margin: 0 1rem 0 1rem;">
+                                <img src="{% static 'Daco_717473.png' %}" width="18" height="15" style="margin-top: 2px;"/>
+                                <p style="margin: 0;">30</p>
+                            </div>
+                    </div>
+            </div>
+        </div>
+        <div style="display: flex; justify-content: center;">
+                <div class="card_list">
+                        <img src="{% static 'comtition_03.jpeg' %}" style="width:40%; border-radius: 20px;">
+                        <div>
+                            <div style="display: flex; justify-content: space-between; margin-right: 1rem; margin-left: 1rem;">
+                                <h5 style="font-size: 22px; margin: 0.5rem;">동아리 이름</h5>
+                                <h6 style="margin: 0.5rem;">D-16</h6>
+                            </div>
+                            <h6 style="margin: 0; font-size: 18px; text-align: center;">봉사/사회활동</h6>
+                            <p style="border-top: 1px solid lightgray; width: 80%; margin-left: 1.5rem;">
+                                이 동아리는 오래된 역사를 자랑하며 사회와 봉사정신으로 똘똘 뭉친 젊은이들이 다같이 봉사활동을 즐기며 놀땐 놀고 마실땐 마시며 정말이지 동아리는 동아리답게라는 말이 어울리는 동아리라고 할 수 있다.
+                            </p>
+                            <div style="display: flex; justify-content: flex-end; margin: 0 1rem 0 1rem;">
+                                    <img src="{% static 'Daco_717473.png' %}" width="18" height="15" style="margin-top: 2px;"/>
+                                    <p style="margin: 0;">30</p>
+                                </div>
+                        </div>
+                </div>
+                <div class="card_list">
+                        <img src="{% static 'comtition_01.jpeg' %}" style="width:40%; border-radius: 20px;">
+                        <div>
+                            <div style="display: flex; justify-content: space-between; margin-right: 1rem; margin-left: 1rem;">
+                                <h5 style="font-size: 22px; margin: 0.5rem;">동아리 이름</h5>
+                                <h6 style="margin: 0.5rem;">D-16</h6>
+                            </div>
+                            <h6 style="margin: 0; font-size: 18px; text-align: center;">봉사/사회활동</h6>
+                            <p style="border-top: 1px solid lightgray; width: 80%; margin-left: 1.5rem;">
+                                이 동아리는 오래된 역사를 자랑하며 사회와 봉사정신으로 똘똘 뭉친 젊은이들이 다같이 봉사활동을 즐기며 놀땐 놀고 마실땐 마시며 정말이지 동아리는 동아리답게라는 말이 어울리는 동아리라고 할 수 있다.
+                            </p>
+                            <div style="display: flex; justify-content: flex-end; margin: 0 1rem 0 1rem;">
+                                    <img src="{% static 'Daco_717473.png' %}" width="18" height="15" style="margin-top: 2px;"/>
+                                    <p style="margin: 0;">30</p>
+                                </div>
+                        </div>
+                </div>
+        </div>
+        <a href="#" style="text-align: right; margin: 0.1rem 8rem 3rem 6rem; color: #376257; text-decoration: none;">다른 동아리 더보기</a>
+    </div>
+    <script>
+        var slideIndex = [1,1];
+        var slideId = ["mySlides1", "mySlides2"]
+        showSlides(1, 0);
+        showSlides(1, 1);
+
+        function plusSlides(n, no) {
+        showSlides(slideIndex[no] += n, no);
+        }
+
+        function currentSlide(n) {
+          showSlides(slideIndex[no] += n, no);
+        }
+
+        function showSlides(n, no) {
+        var i;
+        var x = document.getElementsByClassName(slideId[no]);
+        var dots = document.getElementsByClassName("dot");
+
+        if (n > x.length) {slideIndex[no] = 1}    
+        if (n < 1) {slideIndex[no] = x.length}
+        for (i = 0; i < x.length; i++) {
+            x[i].style.display = "none";  
+        }
+        for (i = 0; i < dots.length; i++) {
+              dots[i].className = dots[i].className.replace(" active", "");
+          }
+            x[slideIndex[no]-1].style.display = "block";  
+            dots[slideIndex[no]-1].className += " active";
+        }
+        
+        // var slideIndex = 1;
+        // showSlides(slideIndex);
+        
+        // function plusSlides(n) {
+        //   showSlides(slideIndex += n);
+        // }
+        
+        // function showSlides(n) {
+        //   var i;
+        //   var slides = document.getElementsByClassName("mySlides");
+        //   var dots = document.getElementsByClassName("dot");
+        //   if (n > slides.length) {slideIndex = 1}    
+        //   if (n < 1) {slideIndex = slides.length}
+        //   for (i = 0; i < slides.length; i++) {
+        //       slides[i].style.display = "none";  
+        //   }
+        //   for (i = 0; i < dots.length; i++) {
+        //       dots[i].className = dots[i].className.replace(" active", "");
+        //   }
+        //   slides[slideIndex-1].style.display = "block";  
+        //   dots[slideIndex-1].className += " active";
+        // }
+        </script>
+</body>
+
+</html>

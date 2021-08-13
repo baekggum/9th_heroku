@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>원동력</title>
+    <style>
+        body {
+    padding: 20px;
+    padding-top: 0px
+}
+
+#title {
+    border-bottom: 1px solid #616161;
+}
+
+#container {
+    width: 96%;
+    height: 100%;
+    margin-top: 10px;
+    padding: 20px;
+    background-color: #DCEDC1;
+}
+
+.list {
+    width: 100%;
+    height: 50px;
+    background-color: #F9F8EB;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+    padding: 0 5px 0 5px;
+}
+
+.listCategory {
+    display: flex;
+    width: 300px;
+    height: 20px;
+    color: #616161;
+    font-weight: 600;
+    font-size: 20px;
+    justify-content: flex-end;
+    margin: 25px 25px 25px 0;
+}
+
+#container .list .groupName a {
+    text-decoration: none;
+    color: #000000;
+    font-weight: 500;
+    font-size: 20px;
+}
+
+.bar {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    text-align: center;
+    height: 30px;
+    width: 3px;
+    background-color: #C4C4C4;
+    margin: 0 30px 0 30px;
+}
+
+.writer {
+    font-weight: 500;
+}
+
+#page {
+    display: flex;
+    flex-direction: 40;
+    justify-content: center;
+    align-content: center;
+    transform: scale(0.3);
+}
+    </style>
+</head>
+
+<body>
+    <div id="title">
+        <h1>봉사 / 사회활동</h1>
+    </div>
+    <div id="container">
+        <div class="list">
+            <div class="groupName"><a href="#">여러분들 멋쟁이사자처럼 어때요??</a></div>
+            <div class="listCategory">
+                <div class="writer">OO님</div>
+                <div class="bar"></div>
+                봉사 / 사회활동
+            </div>
+        </div>
+        <div class="list">
+            <div class="groupName"><a href="#">코딩 능력자 분들 도와주세요!!</a></div>
+            <div class="listCategory">
+                <div class="writer">OO님</div>
+                <div class="bar"></div>
+                봉사 / 사회활동
+            </div>
+        </div>
+        <div class="list">
+            <div class="groupName"><a href="#">비오는날 저녁 추천좀요</a></div>
+            <div class="listCategory">
+                <div class="writer">OO님</div>
+                <div class="bar"></div>
+                봉사 / 사회활동
+            </div>
+        </div>
+        <div class="list">
+            <div class="groupName"><a href="#">OO동아리 공연보고 가세요~</a></div>
+            <div class="listCategory">
+                <div class="writer">OO님</div>
+                <div class="bar"></div>
+                봉사 / 사회활동
+            </div>
+        </div>
+        <div class="list">
+            <div class="groupName"><a href="#">영어 공부 같이 하실분 계신가요?</a></div>
+            <div class="listCategory">
+                <div class="writer">OO님</div>
+                <div class="bar"></div>
+                봉사 / 사회활동
+            </div>
+        </div>
+        <div class="list">
+            <div class="groupName"><a href="#">봉사동아리 추천해주세요!</a></div>
+            <div class="listCategory">
+                <div class="writer">OO님</div>
+                <div class="bar"></div>
+                봉사 / 사회활동
+            </div>
+        </div>
+        <div class="list">
+            <div class="groupName"><a href="#">매일 오후 8시에 대운동장 구보하실분 계신가요?</a></div>
+            <div class="listCategory">
+                <div class="writer">OO님</div>
+                <div class="bar"></div>
+                봉사 / 사회활동
+            </div>
+        </div>
+        <div class="list">
+            <div class="groupName"><a href="#">공대식당 메뉴 추천해줘요</a></div>
+            <div class="listCategory">
+                <div class="writer">OO님</div>
+                <div class="bar"></div>
+                봉사 / 사회활동
+            </div>
+        </div>
+        <div class="list">
+            <div class="groupName"><a href="#">토론하실분~</a></div>
+            <div class="listCategory">
+                <div class="writer">OO님</div>
+                <div class="bar"></div>
+                봉사 / 사회활동
+            </div>
+        </div>
+        <div class="list">
+            <div class="groupName"><a href="#">경제 공부 같이 하실분~</a></div>
+            <div class="listCategory">
+                <div class="writer">OO님</div>
+                <div class="bar"></div>
+                봉사 / 사회활동
+            </div>
+        </div>
+        <div class="list">
+            <div class="groupName"><a href="#">공기업 취업관련 스터디하실분!</a></div>
+            <div class="listCategory">
+                <div class="writer">OO님</div>
+                <div class="bar"></div>
+                봉사 / 사회활동
+            </div>
+        </div>
+        <div class="list">
+            <div class="groupName"><a href="#">집에 보내줘!!</a></div>
+            <div class="listCategory">
+                <div class="writer">OO님</div>
+                <div class="bar"></div>
+                봉사 / 사회활동
+            </div>
+        </div>
+    </div>
+    <div id="page">
+        <img id="page_img" src="{% static 'page.png' %}" alt="page_img">
+    </div>
+</body>
+
+</html>

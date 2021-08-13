@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'signup3.css' %}">
+    <title>원동력</title>
+</head>
+<body>
+    <div class="signup-top">
+        <div class="signup-bottom">
+            <div id="level-line"></div>
+            <div class="level-circle-after" id="circle1"></div>
+            <div class="level-circle-after" id="circle2"></div>
+            <div class="level-circleing"></div>
+            <div class="level-circle-before" id="circle4"></div>
+            <div class="level-circle-before" id="circle5"></div>
+        </div>
+    </div>
+    <form action="{% url 'signup3' %}" method="post">
+        {% csrf_token %}
+    <h2>Level.3 약관동의</h2>
+    <div class="signup-text">
+            <ul class="join_box">
+                <li class="checkBox check01">
+                    <ul class="clearfix">
+                        <li class="checkAllBtn" id="checkAllBtnid">
+                            <input type="checkbox" name="chkAll" id="chk" class="chkAll">
+                        <li> 모두 동의합니다.</li>
+                        </li>
+                    </ul>
+                </li>
+                <li class="checkBox check02">
+                    <ul class="clearfix">
+                        
+                        <li class="checkBtn">
+                            <input type="checkbox" name="chk"> 
+                        </li>
+                        <li>이용약관 동의(필수)</li>
+                    </ul>
+                    <textarea name="" id="">
+Lorem ipsum dolor sit amet, consectetur adipisicing elit. Velit corrupti porro amet eos dolor quaerat consequatur, sed, nemo autem ea dolorem. Quas, iusto aspernatur debitis repellat deleniti non alias dolorum! Lorem ipsum, dolor sit amet consectetur adipisicing elit. Reprehenderit libero earum sequi cum fugit officiis iure dolor voluptatem aliquid accusantium beatae, soluta ut voluptatum odit quis voluptas error quidem magnam!
+       </textarea>
+                </li>
+                <li class="checkBox check03">
+                    <ul class="clearfix">
+                        
+                        <li class="checkBtn">
+                            <input type="checkbox" name="chk">
+                        </li>
+                        <li>개인정보 수집 및 이용에 대한 안내(필수)</li>
+                    </ul>
+ 
+                    <textarea name="" id="">
+Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eius neque ipsa qui mollitia. Nisi eligendi ipsam temporibus, quasi cumque voluptate sint enim velit. Cupiditate quidem tempore nihil, eaque minus delectus! Lorem, ipsum dolor sit amet consectetur adipisicing elit. Cum omnis fugiat ab ad, veniam ducimus excepturi enim nesciunt quos, possimus unde nam aperiam? Corrupti in quos voluptate possimus ipsum molestias?
+       </textarea>
+                </li>
+                <li class="checkBox check03">
+                    <ul class="clearfix">
+                        
+                        <li class="checkBtn">
+                            <input type="checkbox" name="chk">
+                        </li>
+                        <li>위치정보 이용약관 동의(선택)</li>
+                    </ul>
+ 
+                    <textarea name="" id="">
+Lorem, ipsum dolor sit amet consectetur adipisicing elit. Magnam ut, possimus temporibus accusamus aspernatur maiores doloribus, aliquam at deleniti harum sequi rerum impedit porro aut dolor quisquam fugit ullam error! Lorem ipsum dolor sit, amet consectetur adipisicing elit. Labore non doloribus ex sed illum at dignissimos, doloremque tenetur soluta, ullam ipsam sit suscipit quis dolor animi eaque, blanditiis sint. Debitis.
+       </textarea>
+                </li>
+                <li class="checkBox check04">
+                    <ul class="clearfix">
+                        
+                        <li class="checkBtn">
+                            <input type="checkbox" name="chk">
+                        </li>
+                        <li>이벤트 등 프로모션 알림 메일 수신(선택)</li>
+                    </ul>
+ 
+                </li>
+            </ul>
+            <ul class="footBtwrap clearfix">
+                
+                <li><button class="fpmgBt2">위에 약관에 모두 동의합니다.</button></li>
+            </ul>
+    </div>
+
+    <button class="signup-button" type="submit">다음페이지</button>
+</form>
+</body>
+
+</html>
+</html>
